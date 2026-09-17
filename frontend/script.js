@@ -1,4 +1,4 @@
-const API_URL = window.location.port === "5500" ? "http://127.0.0.1:5000/predict" : "/predict";
+const API_URL = "/predict";
 const form = document.querySelector("#complaint-form");
 const complaintInput = document.querySelector("#complaint");
 const analyzeButton = document.querySelector("#analyze-button");

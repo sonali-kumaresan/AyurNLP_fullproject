@@ -75,19 +75,13 @@ C:/Python314/python.exe -m pip install -r requirements.txt
 A virtual environment is recommended for a separate installation.
 
 ## 15. How to Run
-Start the backend from the project directory:
+Start Flask from the project directory. Flask serves both the frontend and the prediction API:
 
 ```powershell
 C:/Python314/python.exe backend/app.py
 ```
 
-Serve the frontend in a second terminal. For example, with Python's built-in static server:
-
-```powershell
-C:/Python314/python.exe -m http.server 5500 --directory frontend
-```
-
-Open <http://127.0.0.1:5500> in a browser.
+Open <http://127.0.0.1:5000> in a browser.
 
 ## 16. Sample Input
 ```json

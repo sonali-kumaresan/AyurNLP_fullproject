@@ -1,10 +1,11 @@
 from pathlib import Path
 import pickle
 
-from flask import Flask, jsonify, request
+from flask import Flask, jsonify, request, send_from_directory
 from flask_cors import CORS
 
 BASE_DIR = Path(__file__).resolve().parent
+FRONTEND_DIR = BASE_DIR.parent / "frontend"
 
 with (BASE_DIR / "model.pkl").open("rb") as model_file:
     model = pickle.load(model_file)
@@ -17,8 +18,13 @@ def preprocess_text(text):
     return text.lower().strip()
 
 
-app = Flask(__name__)
+app = Flask(__name__, static_folder=str(FRONTEND_DIR), static_url_path="")
 CORS(app)
+
+
+@app.get("/")
+def index():
+    return send_from_directory(FRONTEND_DIR, "index.html")
 
 
 @app.get("/health")
