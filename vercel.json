@@ -1,0 +1,9 @@
+{
+  "rewrites": [
+    { "source": "/", "destination": "/frontend/index.html" },
+    { "source": "/style.css", "destination": "/frontend/style.css" },
+    { "source": "/script.js", "destination": "/frontend/script.js" },
+    { "source": "/predict", "destination": "/backend/app.py" },
+    { "source": "/health", "destination": "/backend/app.py" }
+  ]
+}
