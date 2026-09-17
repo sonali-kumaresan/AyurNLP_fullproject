@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="AyurNLP patient complaint symptom-category classification prototype">
+  <title>AyurNLP | Patient Case-Taking AI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="page-shell">
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="AyurNLP home"><span class="brand-mark">A</span><span>AyurNLP</span></a>
+      <span class="status"><span class="status-dot"></span>Local prototype</span>
+    </header>
+
+    <section class="intro" aria-labelledby="page-title">
+      <p class="eyebrow">AI-assisted case taking</p>
+      <h1 id="page-title">Turn a patient complaint into a clear symptom category.</h1>
+      <p class="intro-copy">AyurNLP accepts free-text patient complaints and uses the project’s trained NLP model to classify them into broad symptom categories.</p>
+    </section>
+
+    <section class="workspace" aria-label="Complaint analysis workspace">
+      <div class="panel complaint-panel">
+        <div class="panel-heading"><span class="step-number">01</span><div><p class="eyebrow">Input</p><h2>Patient Complaint</h2></div></div>
+        <form id="complaint-form">
+          <label for="complaint">Describe the patient’s complaint</label>
+          <textarea id="complaint" name="complaint" rows="7" placeholder="Example: I have stomach pain and nausea"></textarea>
+          <p class="form-error" id="form-error" role="alert" hidden></p>
+          <div class="actions"><button class="button button-primary" id="analyze-button" type="submit"><span>Analyze Complaint</span><span aria-hidden="true">→</span></button><button class="button button-secondary" id="clear-button" type="button">Clear</button></div>
+          <p class="loading" id="loading" aria-live="polite" hidden><span class="spinner"></span>Analyzing with the local model...</p>
+        </form>
+      </div>
+
+      <div class="panel result-panel" id="result-panel" aria-live="polite" hidden>
+        <div class="panel-heading"><span class="step-number">02</span><div><p class="eyebrow">Model output</p><h2>Analysis Result</h2></div></div>
+        <div class="result-category"><span class="result-label">Predicted Category</span><strong id="category">—</strong></div>
+        <div class="confidence-row"><div><span class="result-label">Model Confidence</span><strong id="confidence">—</strong></div><div class="confidence-track"><span id="confidence-bar"></span></div></div>
+        <div class="submitted"><span class="result-label">Patient Complaint</span><p id="submitted-complaint">—</p></div>
+      </div>
+    </section>
+
+    <section class="categories" aria-labelledby="categories-title"><div><p class="eyebrow">Classification scope</p><h2 id="categories-title">Supported Categories</h2></div><div class="category-list"><span>Respiratory</span><span>Digestive</span><span>Skin</span><span>Musculoskeletal</span><span>General</span></div></section>
+
+    <footer class="disclaimer"><span class="disclaimer-icon">i</span><p>This prototype performs broad symptom-category classification and does not provide medical diagnosis, treatment, or clinical decisions.</p></footer>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
